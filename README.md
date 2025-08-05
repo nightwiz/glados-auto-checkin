@@ -1,0 +1,1 @@
+使用github actions实现glados自动签到，并通过server酱发送微信通知
