@@ -4,12 +4,12 @@ import json
 from datetime import datetime
 
 def glados_checkin(cookie):
-    url = "https://glados.rocks/api/user/checkin"
+    url = "https://glados.cloud/api/user/checkin"
     headers = {
         "cookie": cookie,
         "content-type": "application/json",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "referer": "https://glados.rocks/console/checkin"
+        "referer": "https://glados.cloud/console/checkin"
     }
     data = {"token": "glados.one"}
     
