@@ -20,8 +20,8 @@ def glados_checkin(cookie):
         response = requests.post(url, headers=headers, data=json.dumps(data))
         
         # 打印状态和响应（便于调试）
-        #print(f"[DEBUG] Status Code: {response.status_code}")
-        #print(f"[DEBUG] Response Body: {response.text}")
+        print(f"[DEBUG] Status Code: {response.status_code}")
+        print(f"[DEBUG] Response Body: {response.text}")
         
         # 检查 HTTP 状态
         if response.status_code != 200:
@@ -65,6 +65,7 @@ def send_wechat_notification(send_key, title, content):
 
 def main():
     cookie = os.getenv('GLADOS_COOKIE')
+    #cookie = "koa:sess=eyJ1c2VySWQiOjIzMDc4NiwiX2V4cGlyZSI6MTc5NDc5OTEwODk2OSwiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=T9mN-dp_AxKBiXP_SJsm2Y7zNAE"
     send_key = os.getenv('SERVERCHAN_SENDKEY')
     
     if not cookie:
