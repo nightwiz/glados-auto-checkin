@@ -1,3 +1,4 @@
+from http.client import ACCEPTED
 import os
 import requests
 import json
@@ -7,18 +8,20 @@ def glados_checkin(cookie):
     url = "https://glados.cloud/api/user/checkin"
     headers = {
         "cookie": cookie,
-        "content-type": "application/json",
+        "content-type": "application/json;charset=UTF-8",
+        "accept": "application/json, text/plain, */*",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "referer": "https://glados.cloud/console/checkin"
+        "referer": "https://glados.cloud/console/checkin",
+        "origin": "https://glados.cloud"  
     }
-    data = {"token": "glados.one"}
+    data = {"token": "glados.cloud"}
     
     try:
         response = requests.post(url, headers=headers, data=json.dumps(data))
         
         # 打印状态和响应（便于调试）
-        print(f"[DEBUG] Status Code: {response.status_code}")
-        print(f"[DEBUG] Response Body: {response.text}")
+        #print(f"[DEBUG] Status Code: {response.status_code}")
+        #print(f"[DEBUG] Response Body: {response.text}")
         
         # 检查 HTTP 状态
         if response.status_code != 200:
